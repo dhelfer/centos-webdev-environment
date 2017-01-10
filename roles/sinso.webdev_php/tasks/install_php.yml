@@ -1,23 +1,13 @@
 ---
-- name: unlink all PHP versions
-  shell: "brew list -1 | egrep 'php[0-9]{2}$' | while read V; do sudo brew unlink $V; done"
-  tags: setup
-
 - name: "PHP {{ version }}: install "
-  homebrew:
+  yum:
     name: "{{ webdev_php_versions[version].package }}"
     state: present
   notify: restart php-fpm
   tags: setup
 
-- name: "PHP {{ version }}: link"
-  homebrew:
-    name: "{{ webdev_php_versions[version].package }}"
-    state: linked
-  tags: setup
-
 - name: "PHP {{ version }}: install extensions"
-  homebrew:
+  yum:
     name: "{{ item }}"
     state: present
   with_items: "{{ webdev_php_versions[version].extension_packages }}"
@@ -54,14 +44,5 @@
     state: directory
     owner: "{{ webdev_php_user }}"
     group: "{{ webdev_php_group }}"
-  notify: restart php-fpm
-  tags: setup
-
-- name: "PHP {{ version }}: create symlink for LaunchDaemon"
-  file:
-    path: "/Library/LaunchDaemons/homebrew.mxcl.{{ webdev_php_versions[version].package }}.plist"
-    state: link
-    src: "/usr/local/opt/{{ webdev_php_versions[version].package }}/homebrew.mxcl.{{ webdev_php_versions[version].package }}.plist"
-  sudo: true
   notify: restart php-fpm
   tags: setup

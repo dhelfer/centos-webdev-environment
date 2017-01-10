@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo brew update
-sudo brew upgrade
+sudo yum update
+sudo yum upgrade

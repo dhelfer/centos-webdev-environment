@@ -1,7 +1,7 @@
 ---
 - name: install zsh
-  homebrew:
-    name: zsh
+  yum:
+    name: zsh.x86_64
     state: present
 
 - name: install oh-my-zsh
@@ -18,8 +18,7 @@
 - name: set default shell
   user:
     name: "{{ webdev_dotfiles_user }}"
-    group: 'staff'
-    groups: 'com.apple.sharepoint.group.1,everyone,localaccounts,_appserverusr,admin,_appserveradm,_lpadmin,_appstore,_lpoperator,_developer,com.apple.access_ftp,com.apple.access_screensharing,com.apple.access_ssh'
+    group: "{{ webdev_dotfiles_group }}"
     shell: /bin/zsh
 
 - name: set permissions

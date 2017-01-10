@@ -1,21 +1,4 @@
 ---
-
-- name: "add homebrew tap 'php'"
-  homebrew_tap:
-    tap: "homebrew/php"
-    state: present
-  tags: setup
-
-- name: PHP 5.4
-  include: install_php.yml
-  vars:
-    version: '5.4'
-
-- name: PHP 5.5
-  include: install_php.yml
-  vars:
-    version: '5.5'
-
 - name: PHP 5.6
   include: install_php.yml
   vars:
@@ -31,7 +14,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - composer
-    - phpunit
-    - behat
+    - composer.noarch
+    - php-phpunit-PHPUnit.noarch
+    #- behat
   tags: setup

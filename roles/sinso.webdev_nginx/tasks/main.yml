@@ -1,7 +1,7 @@
 ---
 - name: install nginx
-  homebrew:
-    name: nginx
+  yum:
+    name: nginx.x86_64
     state: present
   notify: restart nginx
   tags: setup
@@ -32,27 +32,6 @@
   with_items:
     - "{{ webdev_homebrew_rootpath }}etc/nginx/sites-available"
     - "{{ webdev_homebrew_rootpath }}etc/nginx/sites-enabled"
-  notify: restart nginx
-  tags: setup
-
-- name: set permissions
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ webdev_user }}"
-    group: "{{ webdev_group }}"
-    mode: u=rwX,g=rwX,o=rX
-    recurse: yes
-  with_items:
-    - /usr/local/etc/nginx/
-  tags: setup
-
-- name: create symlink for LaunchDaemon
-  file:
-    path: "/Library/LaunchDaemons/homebrew.mxcl.nginx.plist"
-    state: link
-    src: "/usr/local/opt/nginx/homebrew.mxcl.nginx.plist"
-  sudo: true
   notify: restart nginx
   tags: setup
 

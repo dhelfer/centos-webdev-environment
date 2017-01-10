@@ -5,11 +5,11 @@
   roles:
     - sinso.webdev
     - sinso.webdev_dotfiles
-    - sinso.webdev_elasticsearch
+    #- sinso.webdev_elasticsearch
     - sinso.webdev_nginx
     - sinso.webdev_php
-    - sinso.webdev_mariadb
+    #- sinso.webdev_mariadb
     - sinso.webdev_flow_debugproxy
-    - sinso.webdev_dnsmasq
+    #- sinso.webdev_dnsmasq
     - sinso.webdev_grunt
-    - sinso.webdev_selenium
+    #- sinso.webdev_selenium

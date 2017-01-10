@@ -2,55 +2,31 @@
 webdev_php_user: "{{ webdev_user }}"
 webdev_php_group: "{{ webdev_group }}"
 webdev_php_versions:
-  '5.4':
-    package: 'php54'
-    extension_packages:
-      - php54-apcu
-      - php54-gmagick
-      - php54-imagick
-      - php54-intl
-      - php54-mcrypt
-      - php54-opcache
-      #- php54-redis
-      - php54-yaml
-      - php54-xdebug
-    port: 9540
-  '5.5':
-    package: 'php55'
-    extension_packages:
-      - php55-apcu
-      - php55-gmagick
-      - php55-imagick
-      - php55-intl
-      - php55-mcrypt
-      - php55-opcache
-      #- php55-redis
-      - php55-yaml
-      - php55-xdebug
-    port: 9550
   '5.6':
-    package: 'php56'
+    package: 'php56w.x86_64'
     extension_packages:
-      - php56-apcu
-      - php56-gmagick
-      - php56-imagick
-      - php56-intl
-      - php56-mcrypt
-      - php56-opcache
+      - php56w-pecl-apcu.x86_64
+      #- php56-gmagick
+      - php56w-pecl-imagick.x86_64
+      - php56w-intl.x86_64
+      - php56w-mcrypt.x86_64
+      - php56w-opcache.x86_64
       #- php56-redis
-      - php56-yaml
-      - php56-xdebug
+      #- php56-yaml
+      - php56w-pecl-xdebug.x86_64
     port: 9560
+    fpm: php56-fpm
   '7.0':
-    package: 'php70'
+    package: 'php70w.x86_64'
     extension_packages:
-      - php70-apcu
+      - php70w-pecl-apcu.x86_64
       #- php70-gmagick
-      - php70-imagick
-      - php70-intl
-      - php70-mcrypt
-      - php70-opcache
+      - php70w-pecl-imagick.x86_64
+      - php70w-intl.x86_64
+      - php70w-mcrypt.x86_64
+      - php70w-opcache.x86_64
       #- php70-redis
       #- php70-yaml
-      - php70-xdebug
+      - php70w-pecl-xdebug.x86_64
     port: 9700
+    fpm: php70-fpm

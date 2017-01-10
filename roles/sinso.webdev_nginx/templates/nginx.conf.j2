@@ -1,5 +1,5 @@
 
-user  {{ webdev_nginx_user }} staff;
+user  {{ webdev_nginx_user }} {{ webdev_nginx_group }};
 worker_processes  1;
 
 #error_log  logs/error.log;

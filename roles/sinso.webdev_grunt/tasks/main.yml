@@ -1,6 +1,6 @@
 ---
 - name: install npm
-  homebrew:
+  yum:
     name: npm
     state: present
 

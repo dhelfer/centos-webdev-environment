@@ -4,99 +4,16 @@
   debug: msg="Remove this when installing for the first time..."
   tags: instance
 
-- name: "add taps"
-  homebrew_tap:
-    tap: "{{ item }}"
-    state: present
-  with_items:
-    - caskroom/cask
-  tags: setup
-
 - name: "install packages"
-  homebrew:
+  yum:
     name: "{{ item }}"
     state: present
   with_items:
-    - ansible
-    - autoconf
-    - bash-completion
-    #- boot2docker
-    #- docker
-    #- elasticsearch17
-    - gettext
-    - git
-    - gpg
-    - htop
-    - hub
-    - iperf
-    - libdvdcss
-    - libevent
-    - packer
-    - python
-    - nvm
-    - ssh-copy-id
-  #  - cowsay
-  #  - ios-sim
-    - readline
-    - subversion
-    - kdiff3
-    - openssl
-    - pv
-    - ncdu
-    - tmux
-  #  - drush
-    - wget
-    - wrk
-    - zsh
-    - brew-cask
-    - p7zip
-  ignore_errors: yes
-  tags: setup
-
-- name: install cask packages
-  homebrew_cask:
-    name: "{{ item }}"
-    state: present
-  environment:
-    HOMEBREW_CASK_OPTS: --appdir=/Applications
-  with_items:
-    - phpstorm
-    - microsoft-office
-    - firefox
-    - google-chrome
-    - adobe-reader
-    - vlc
-    - iterm2
-    - sublime-text
-    - keepassx
-    - alfred
-    - dropbox
-    - slack
-    - virtualbox
-    - vagrant
-    - skype
-    - atom
-   # - flux
-   # - seil
-    - sequel-pro
-    - microsoft-lync
-    - caffeine
-    - dash
-    - spectacle
-    - toggldesktop
-    - dockertoolbox
-    - citrix-receiver
-    - krita
-  tags: setup
-
-- name: set permissions
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ webdev_user }}"
-    group: "{{ webdev_group }}"
-    mode: u=rwX,g=rwX,o=rX
-    recurse: yes
-  with_items:
-    - /usr/local/var/log/
-    - /usr/local/var/run/
+    - epel-release.noarch
+    - ansible.noarch
+    - autoconf.noarch
+    - bash-completion.noarch
+    - git.x86_64
+    - gpgme.x86_64
+    - zsh.x86_64
+    - firefox.x86_64

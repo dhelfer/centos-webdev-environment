@@ -9,9 +9,3 @@
     path: /etc/ansible
     state: directory
   sudo: yes
-
-- name: Symlink /usr/local/etc/ansible to /etc/ansible.
-  file:
-    src: /etc/ansible
-    path: /usr/local/etc/ansible
-    state: link

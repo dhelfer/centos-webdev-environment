@@ -1,6 +1,6 @@
 ---
-- name: install dnsmasq
-  homebrew:
+- name: install go
+  yum:
     name: go
     state: present
 
@@ -19,6 +19,6 @@
 
 - name: create symlink for flow-debugproxy executable
   file:
-    dest: /usr/local/bin/flow-debugproxy
+    dest: /bin/flow-debugproxy
     src: "{{ webdev_flow_debugproxy_path }}flow-debugproxy"
     state: link

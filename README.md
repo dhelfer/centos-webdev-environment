@@ -1,4 +1,11 @@
-
+Before install
+-------
+```
+sudo yum install epel-release.noarch
+sudo yum groupinstall "Development Tools" "Development Libraries"
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+```
 
 Install
 -------
