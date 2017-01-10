@@ -14,9 +14,18 @@
   notify: restart php-fpm
   tags: setup
 
+- name: "PHP {{ version }}: create folders in /etc/php.d/"
+  file:
+    path: "{{ webdev_homebrew_rootpath }}etc/php.d/{{ version }}"
+    state: directory
+    owner: "{{ webdev_php_user }}"
+    group: "{{ webdev_php_group }}"
+  notify: restart php-fpm
+  tags: setup
+
 - name: "PHP {{ version }}: configure php-fpm"
   template:
-    dest: "{{ webdev_homebrew_rootpath }}etc/php/{{ version }}/php-fpm.conf"
+    dest: "{{ webdev_homebrew_rootpath }}etc/php.d/{{ version }}/php-fpm.conf"
     src: "php{{ version | replace('.', '') }}/php-fpm.conf.j2"
     owner: "{{ webdev_php_user }}"
     group: "{{ webdev_php_group }}"
@@ -25,7 +34,7 @@
 
 - name: "PHP {{ version }}: add additional configuration for php-fpm"
   copy:
-    dest: "{{ webdev_homebrew_rootpath }}etc/php/{{ version }}/conf.d/"
+    dest: "{{ webdev_homebrew_rootpath }}etc/php.d/{{ version }}/conf.d/"
     src: "php{{ version | replace('.', '') }}/conf.d/"
     owner: "{{ webdev_php_user }}"
     group: "{{ webdev_php_group }}"
@@ -34,13 +43,13 @@
 
 - name: "PHP {{ version }}: remove default configuration folder"
   file:
-    path: "{{ webdev_homebrew_rootpath }}etc/php/{{ version }}/php-fpm.d"
+    path: "{{ webdev_homebrew_rootpath }}etc/php.d/{{ version }}/php-fpm.d"
     state: absent
   tags: setup
 
 - name: "PHP {{ version }}: create configuration folders for php-fpm pools"
   file:
-    path: "{{ webdev_homebrew_rootpath }}etc/php/{{ version }}/fpm.d"
+    path: "{{ webdev_homebrew_rootpath }}etc/php.d/{{ version }}/fpm.d"
     state: directory
     owner: "{{ webdev_php_user }}"
     group: "{{ webdev_php_group }}"
