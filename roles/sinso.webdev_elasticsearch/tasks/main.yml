@@ -20,7 +20,7 @@
   tags: setup
 
 - name: install elasticsearch
-  homebrew:
+  yum:
     name: elasticsearch17
     state: present
   notify: restart elasticsearch

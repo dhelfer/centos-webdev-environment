@@ -4,10 +4,10 @@
   vars:
     version: '5.6'
 
-- name: PHP 7.0
-  include: install_php.yml
-  vars:
-    version: '7.0'
+#- name: PHP 7.0
+#  include: install_php.yml
+#  vars:
+#    version: '7.0'
 
 - name: "install packages"
   yum:

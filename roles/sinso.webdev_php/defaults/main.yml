@@ -16,17 +16,17 @@ webdev_php_versions:
       - php56w-pecl-xdebug.x86_64
     port: 9560
     fpm: php56-fpm
-  '7.0':
-    package: 'php70w.x86_64'
-    extension_packages:
-      - php70w-pecl-apcu.x86_64
-      #- php70-gmagick
-      - php70w-pecl-imagick.x86_64
-      - php70w-intl.x86_64
-      - php70w-mcrypt.x86_64
-      - php70w-opcache.x86_64
-      #- php70-redis
-      #- php70-yaml
-      - php70w-pecl-xdebug.x86_64
-    port: 9700
-    fpm: php70-fpm
+  #'7.0':
+  #  package: 'php70w.x86_64'
+  #  extension_packages:
+  #    - php70w-pecl-apcu.x86_64
+  #    #- php70-gmagick
+  #    - php70w-pecl-imagick.x86_64
+  #    - php70w-intl.x86_64
+  #    - php70w-mcrypt.x86_64
+  #    - php70w-opcache.x86_64
+  #    #- php70-redis
+  #    #- php70-yaml
+  #    - php70w-pecl-xdebug.x86_64
+  #  port: 9700
+  #  fpm: php70-fpm
