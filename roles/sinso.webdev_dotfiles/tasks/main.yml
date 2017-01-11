@@ -31,7 +31,6 @@
     recurse: yes
   with_items:
     - "{{ webdev_dotfiles_home }}.oh-my-zsh"
-    - "{{ webdev_dotfiles_home }}"
 
 - name: create folder for dotfiles
   file:
@@ -41,9 +40,7 @@
     group: "{{ webdev_dotfiles_group }}"
     mode: u=rwX,g=rX,o=rX
   with_fileglob:
-    - ../templates/.*.j2
-    - ../templates/*.j2
-    - ../templates/.profile.d/*.j2
+    - ../templates/.profile.d/
 
 - name: copy dotfiles
   template:

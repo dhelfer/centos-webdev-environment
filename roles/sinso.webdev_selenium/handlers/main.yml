@@ -1,6 +1,0 @@
----
-- name: "restart selenium"
-  shell: "launchctl {{ item }} {{ webdev_home }}Library/LaunchAgents/homebrew.mxcl.selenium-server-standalone.plist"
-  with_items:
-    - 'unload'
-    - 'load'

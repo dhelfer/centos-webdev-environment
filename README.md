@@ -1,10 +1,14 @@
 Before install
 -------
 ```
-sudo yum install epel-release.noarch
-sudo yum groupinstall "Development Tools" "Development Libraries"
+#yum install epel-release.noarch
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+yum groupinstall "Development Tools"
+yum install kernel-headers kernel-devel
+
+for grunt compass:
+yum install ruby-devel.x86_64
 ```
 
 Install

@@ -10,7 +10,7 @@
     version: '7.0'
 
 - name: "install packages"
-  homebrew:
+  yum:
     name: "{{ item }}"
     state: present
   with_items:
