@@ -9,7 +9,7 @@
 
 - name: "{{ name }}: add vhost configuration"
   template:
-    dest: "{{ webdev_homebrew_rootpath }}etc/nginx/sites-available/{{ name }}.conf"
+    dest: "{{ webdev_yum_rootpath }}etc/nginx/sites-available/{{ name }}.conf"
     src: 'applications/{{ application }}.conf.j2'
     owner: "{{ webdev_nginx_user }}"
     group: "{{ webdev_nginx_group }}"
@@ -18,8 +18,8 @@
 
 - name: "{{ name }}: create symlink for vhost configuration"
   file:
-    path: "{{ webdev_homebrew_rootpath }}etc/nginx/sites-enabled/{{ name }}.conf"
+    path: "{{ webdev_yum_rootpath }}etc/nginx/sites-enabled/{{ name }}.conf"
     state: link
-    src: "{{ webdev_homebrew_rootpath }}etc/nginx/sites-available/{{ name }}.conf"
+    src: "{{ webdev_yum_rootpath }}etc/nginx/sites-available/{{ name }}.conf"
   notify: restart nginx
   tags: instance

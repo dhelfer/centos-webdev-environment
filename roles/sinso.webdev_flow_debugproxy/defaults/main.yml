@@ -1,4 +1,4 @@
 ---
 # defaults file for sinso.webdev_flow_debugproxy
-webdev_flow_debugproxy_gopath: "{{ webdev_homebrew_rootpath }}opt/go/"
+webdev_flow_debugproxy_gopath: "{{ webdev_yum_rootpath }}opt/go/"
 webdev_flow_debugproxy_path: "{{ webdev_flow_debugproxy_gopath }}src/github.com/dfeyer/flow-debugproxy/"

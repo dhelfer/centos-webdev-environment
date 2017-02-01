@@ -12,7 +12,7 @@
   register: flow_debugproxy_change
 
 - name: build flow-debugproxy
-  shell: "export GOPATH={{ webdev_flow_debugproxy_gopath }}; {{ webdev_homebrew_rootpath }}bin/go get && {{ webdev_homebrew_rootpath }}bin/go build"
+  shell: "export GOPATH={{ webdev_flow_debugproxy_gopath }}; {{ webdev_yum_rootpath }}bin/go get && {{ webdev_yum_rootpath }}bin/go build"
   args:
     chdir: "{{ webdev_flow_debugproxy_path }}"
   when: flow_debugproxy_change.changed

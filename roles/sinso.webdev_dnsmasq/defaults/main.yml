@@ -1,4 +1,0 @@
----
-webdev_dnsmasq_domains:
-  dev: 127.0.0.1
-  local: 127.0.0.1

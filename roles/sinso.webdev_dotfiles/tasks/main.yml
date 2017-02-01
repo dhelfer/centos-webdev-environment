@@ -12,7 +12,7 @@
 - name: add zsh to available shells
   lineinfile:
     dest: /etc/shells
-    line: "{{ webdev_homebrew_rootpath }}bin/zsh"
+    line: "{{ webdev_yum_rootpath }}bin/zsh"
     state: present
 
 - name: set default shell

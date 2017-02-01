@@ -1,2 +1,0 @@
----
-webdev_elasticsearch_user: "{{ webdev_user }}"

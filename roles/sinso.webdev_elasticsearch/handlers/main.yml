@@ -1,6 +1,0 @@
----
-- name: "restart elasticsearch"
-  shell: "launchctl {{ item }} {{ webdev_home }}Library/LaunchAgents/homebrew.mxcl.elasticsearch17.plist"
-  with_items:
-    - 'unload'
-    - 'load'

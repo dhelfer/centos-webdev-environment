@@ -16,7 +16,7 @@
 
 - name: configure nginx
   template:
-    dest: "{{ webdev_homebrew_rootpath }}etc/nginx/nginx.conf"
+    dest: "{{ webdev_yum_rootpath }}etc/nginx/nginx.conf"
     src: 'nginx.conf.j2'
     owner: "{{ webdev_nginx_user }}"
     group: "{{ webdev_nginx_group }}"
@@ -30,8 +30,8 @@
     owner: "{{ webdev_nginx_user }}"
     group: "{{ webdev_nginx_group }}"
   with_items:
-    - "{{ webdev_homebrew_rootpath }}etc/nginx/sites-available"
-    - "{{ webdev_homebrew_rootpath }}etc/nginx/sites-enabled"
+    - "{{ webdev_yum_rootpath }}etc/nginx/sites-available"
+    - "{{ webdev_yum_rootpath }}etc/nginx/sites-enabled"
   notify: restart nginx
   tags: setup
 
