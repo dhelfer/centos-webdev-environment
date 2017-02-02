@@ -23,3 +23,10 @@
     src: "{{ webdev_yum_rootpath }}etc/nginx/sites-available/{{ name }}.conf"
   notify: restart nginx
   tags: instance
+
+- name: "{{ name }}: add to hosts"
+  lineinfile:
+    dest: /etc/hosts
+    state: present
+    line: "127.0.0.1 {{ name }}.dev"
+  tags: instance

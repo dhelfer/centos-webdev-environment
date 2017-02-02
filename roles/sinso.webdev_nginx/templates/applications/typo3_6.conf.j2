@@ -2,8 +2,8 @@ server {
 	listen 80;
 
 	server_name {{ webdev_nginx_domain }};
-	#access_log /data/log/nginx/access.log;
-	#error_log /data/log/nginx/error.log info;
+	access_log /var/log/nginx/{{ name }}_access.log;
+	error_log /var/log/nginx/{{ name }}_error.log info;
 
 	root {{ webdev_nginx_documentroot }};
 

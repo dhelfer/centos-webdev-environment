@@ -16,12 +16,6 @@
         owner: "{{ webdev_user }}"
         group: "{{ webdev_group }}"
 
-    - name: "{{ name }}: add to hosts"
-      lineinfile:
-        path: /etc/hosts
-        state: present
-        line: '127.0.0.1 {{ name }}.dev'
-
 
     - debug: msg="{{ name }}"
     - debug: msg="{{ application }}"
