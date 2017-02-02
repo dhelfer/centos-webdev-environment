@@ -15,7 +15,7 @@ webdev_php_versions:
       #- php56-yaml
       - php56w-pecl-xdebug.x86_64
     port: 9560
-    fpm: php56-fpm
+    fpm: php-fpm56
   #'7.0':
   #  package: 'php70w.x86_64'
   #  extension_packages:

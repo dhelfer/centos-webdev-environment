@@ -1,6 +1,6 @@
 ---
-webdev_user: root
-webdev_group: root
+webdev_user: developer
+webdev_group: developer
 webdev_home: "/home/{{ webdev_user }}/"
 webdev_projectspath: "{{ webdev_home }}vhosts/"
 webdev_yum_rootpath: "/"

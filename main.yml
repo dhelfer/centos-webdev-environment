@@ -10,5 +10,4 @@
     - sinso.webdev_php
     - sinso.webdev_mariadb
     - sinso.webdev_flow_debugproxy
-    - sinso.webdev_dnsmasq
     - sinso.webdev_grunt
